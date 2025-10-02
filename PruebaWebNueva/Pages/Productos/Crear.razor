@@ -1,0 +1,151 @@
+﻿@page "/productos/crear"
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Components.Forms
+@using PruebaWebNueva.Domain.Entities
+@inject PruebaWebNueva.Application.Services.IProductoService ProductoService
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h3 class="mb-0">
+                        <i class="fas fa-plus me-2"></i>Crear Producto
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <EditForm Model="@producto" OnValidSubmit="HandleValidSubmit">
+                        <DataAnnotationsValidator />
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">
+                                <i class="fas fa-tag me-1"></i>Nombre *
+                            </label>
+                            <InputText @bind-Value="producto.Nombre"
+                                       class="form-control form-control-lg"
+                                       placeholder="Ingrese el nombre del producto" />
+                            <ValidationMessage For="@(() => producto.Nombre)" class="text-danger small mt-1" />
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-dollar-sign me-1"></i>Precio *
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <InputNumber @bind-Value="producto.Precio"
+                                                     class="form-control"
+                                                     placeholder="0.00"
+                                                     step="0.01" />
+                                    </div>
+                                    <ValidationMessage For="@(() => producto.Precio)" class="text-danger small mt-1" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-boxes me-1"></i>Stock Inicial *
+                                    </label>
+                                    <InputNumber @bind-Value="producto.CantidadStock"
+                                                 class="form-control"
+                                                 placeholder="0" />
+                                    <ValidationMessage For="@(() => producto.CantidadStock)" class="text-danger small mt-1" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-exclamation-triangle me-1"></i>Stock Mínimo *
+                                    </label>
+                                    <InputNumber @bind-Value="producto.StockMinimo"
+                                                 class="form-control"
+                                                 placeholder="0" />
+                                    <ValidationMessage For="@(() => producto.StockMinimo)" class="text-danger small mt-1" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-list me-1"></i>Categoría
+                                    </label>
+                                    <InputText @bind-Value="producto.Categoria"
+                                               class="form-control"
+                                               placeholder="Ej: Electrónicos" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">
+                                <i class="fas fa-barcode me-1"></i>Código de Barras
+                            </label>
+                            <InputText @bind-Value="producto.CodigoBarras"
+                                       class="form-control"
+                                       placeholder="Código de barras (opcional)" />
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">
+                                <i class="fas fa-file-alt me-1"></i>Descripción
+                            </label>
+                            <InputTextArea @bind-Value="producto.Descripcion"
+                                           class="form-control"
+                                           rows="3"
+                                           placeholder="Descripción del producto (opcional)" />
+                            <ValidationMessage For="@(() => producto.Descripcion)" class="text-danger small mt-1" />
+                        </div>
+
+                        <ValidationSummary class="mb-3" />
+
+                        <div class="row g-2">
+                            <div class="col-12 col-md-6 order-2 order-md-1">
+                                <button type="button"
+                                        class="btn btn-outline-secondary w-100 btn-lg"
+                                        @onclick="Cancelar">
+                                    <i class="fas fa-times me-2"></i>Cancelar
+                                </button>
+                            </div>
+                            <div class="col-12 col-md-6 order-1 order-md-2">
+                                <button type="submit"
+                                        class="btn btn-success w-100 btn-lg">
+                                    <i class="fas fa-save me-2"></i>Guardar Producto
+                                </button>
+                            </div>
+                        </div>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private Producto producto = new Producto();
+
+    private async Task HandleValidSubmit(EditContext context)
+    {
+        try
+        {
+            producto.FechaUltimaActualizacion = DateTime.Now;
+            await ProductoService.AddAsync(producto);
+            await JSRuntime.InvokeVoidAsync("alert", "Producto creado exitosamente!");
+            NavigationManager.NavigateTo("/productos");
+        }
+        catch (Exception ex)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", $"Error al crear producto: {ex.Message}");
+        }
+    }
+
+    private void Cancelar()
+    {
+        NavigationManager.NavigateTo("/productos");
+    }
+}

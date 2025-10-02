@@ -1,0 +1,51 @@
+﻿@using PruebaWebNueva.Domain.Entities
+@inject PruebaWebNueva.Application.Services.IAuthService AuthService
+@inject NavigationManager NavigationManager
+
+@if (usuarioAutenticado != null)
+{
+    @ChildContent
+}
+else
+{
+    <div class="text-center p-5">
+        <div class="spinner-border text-primary mb-3" role="status">
+            <span class="visually-hidden">Cargando...</span>
+        </div>
+        <p>Verificando autenticación...</p>
+    </div>
+}
+
+@code {
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public string? RequiredModule { get; set; }
+    [Parameter] public string? RequiredAction { get; set; }
+
+    private Usuario? usuarioAutenticado;
+
+    protected override async Task OnInitializedAsync()
+    {
+        usuarioAutenticado = await AuthService.GetUsuarioActualAsync();
+
+        if (usuarioAutenticado == null)
+        {
+            NavigationManager.NavigateTo("/login", true);
+            return;
+        }
+
+        // Verificar permisos específicos si se requieren
+        if (!string.IsNullOrEmpty(RequiredModule) && !string.IsNullOrEmpty(RequiredAction))
+        {
+            bool tienePermiso = await AuthService.TienePermisoAsync(
+                usuarioAutenticado.Id,
+                RequiredModule,
+                RequiredAction);
+
+            if (!tienePermiso)
+            {
+                NavigationManager.NavigateTo("/acceso-denegado", true);
+                return;
+            }
+        }
+    }
+}

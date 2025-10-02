@@ -1,0 +1,80 @@
+﻿@page "/"
+@using PruebaWebNueva.Domain.Entities
+@inject PruebaWebNueva.Application.Services.IAuthService AuthService
+@inject NavigationManager NavigationManager
+
+@if (usuarioAutenticado != null)
+{
+    <PageTitle>Dashboard - Sistema de Gestión</PageTitle>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body text-center">
+                        <h1 class="display-4 text-primary">Bienvenido al Sistema</h1>
+                        <p class="lead">Hola <strong>@usuarioAutenticado.NombreCompleto</strong></p>
+                        <p>Último acceso: @(usuarioAutenticado.UltimoLogin?.ToString("dd/MM/yyyy HH:mm") ?? "Primer ingreso")</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 col-6 mb-3">
+                <div class="card bg-primary text-white">
+                    <div class="card-body text-center">
+                        <i class="fas fa-boxes fa-2x mb-2"></i>
+                        <h5>Productos</h5>
+                        <p>Gestionar inventario</p>
+                        <a href="/productos" class="btn btn-light btn-sm">Ver</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-3">
+                <div class="card bg-success text-white">
+                    <div class="card-body text-center">
+                        <i class="fas fa-warehouse fa-2x mb-2"></i>
+                        <h5>Stock</h5>
+                        <p>Control de inventario</p>
+                        <a href="/stock" class="btn btn-light btn-sm">Ver</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-3">
+                <div class="card bg-info text-white">
+                    <div class="card-body text-center">
+                        <i class="fas fa-users fa-2x mb-2"></i>
+                        <h5>Clientes</h5>
+                        <p>Próximamente</p>
+                        <button class="btn btn-light btn-sm" disabled>Próximo</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-3">
+                <div class="card bg-warning text-white">
+                    <div class="card-body text-center">
+                        <i class="fas fa-shopping-cart fa-2x mb-2"></i>
+                        <h5>Ventas</h5>
+                        <p>Próximamente</p>
+                        <button class="btn btn-light btn-sm" disabled>Próximo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private Usuario? usuarioAutenticado;
+
+    protected override async Task OnInitializedAsync()
+    {
+        usuarioAutenticado = await AuthService.GetUsuarioActualAsync();
+
+        if (usuarioAutenticado == null)
+        {
+            NavigationManager.NavigateTo("/login", true);
+        }
+    }
+}

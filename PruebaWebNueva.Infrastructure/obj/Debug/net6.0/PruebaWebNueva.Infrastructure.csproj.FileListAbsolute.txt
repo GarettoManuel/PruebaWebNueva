@@ -1,0 +1,15 @@
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Infrastructure\bin\Debug\net6.0\PruebaWebNueva.Infrastructure.deps.json
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Infrastructure\bin\Debug\net6.0\PruebaWebNueva.Infrastructure.dll
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Infrastructure\bin\Debug\net6.0\PruebaWebNueva.Infrastructure.pdb
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Infrastructure\bin\Debug\net6.0\PruebaWebNueva.Domain.dll
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Infrastructure\bin\Debug\net6.0\PruebaWebNueva.Domain.pdb
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Infrastructure\obj\Debug\net6.0\PruebaWebNueva.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Infrastructure\obj\Debug\net6.0\PruebaWebNueva.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Infrastructure\obj\Debug\net6.0\PruebaWebNueva.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Infrastructure\obj\Debug\net6.0\PruebaWebNueva.Infrastructure.AssemblyInfo.cs
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Infrastructure\obj\Debug\net6.0\PruebaWebNueva.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Infrastructure\obj\Debug\net6.0\PruebaWe.42EBCF8B.Up2Date
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Infrastructure\obj\Debug\net6.0\PruebaWebNueva.Infrastructure.dll
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Infrastructure\obj\Debug\net6.0\refint\PruebaWebNueva.Infrastructure.dll
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Infrastructure\obj\Debug\net6.0\PruebaWebNueva.Infrastructure.pdb
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Infrastructure\obj\Debug\net6.0\ref\PruebaWebNueva.Infrastructure.dll

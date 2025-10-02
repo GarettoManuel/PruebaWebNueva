@@ -1,0 +1,185 @@
+﻿@page "/login"
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Components.Forms
+@using PruebaWebNueva.Domain.Entities
+@inject PruebaWebNueva.Application.Services.IAuthService AuthService
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+<div class="login-container">
+    <div class="login-card">
+        <div class="login-header">
+            <div class="logo">
+                <i class="fas fa-cogs fa-3x text-primary mb-3"></i>
+                <h2 class="fw-bold">SistemaGest</h2>
+                <p class="text-muted">Sistema de Gestión Integral</p>
+            </div>
+        </div>
+
+        <div class="login-form">
+            <EditForm Model="@loginModel" OnValidSubmit="HandleLogin">
+                <DataAnnotationsValidator />
+
+                @if (!string.IsNullOrEmpty(errorMessage))
+                {
+                    <div class="alert alert-danger" role="alert">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        @errorMessage
+                    </div>
+                }
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        <i class="fas fa-user me-2"></i>Usuario
+                    </label>
+                    <InputText @bind-Value="loginModel.NombreUsuario"
+                               class="form-control form-control-lg"
+                               placeholder="Ingrese su usuario" />
+                    <ValidationMessage For="@(() => loginModel.NombreUsuario)" />
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">
+                        <i class="fas fa-lock me-2"></i>Contraseña
+                    </label>
+                    <InputText @bind-Value="loginModel.Password"
+                               type="password"
+                               class="form-control form-control-lg"
+                               placeholder="Ingrese su contraseña" />
+                    <ValidationMessage For="@(() => loginModel.Password)" />
+                </div>
+
+                <div class="d-grid mb-3">
+                    <button type="submit" class="btn btn-primary btn-lg" disabled="@isLoading">
+                        @if (isLoading)
+                        {
+                            <span class="spinner-border spinner-border-sm me-2"></span>
+                            <span>Iniciando sesión...</span>
+                        }
+                        else
+                        {
+                            <i class="fas fa-sign-in-alt me-2"></i>
+                            <span>Iniciar Sesión</span>
+                        }
+                    </button>
+                </div>
+
+            </EditForm>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Ocultar el sidebar solo en la página de login */
+    .sidebar {
+        display: none !important;
+    }
+
+    .page main {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    .top-row {
+        display: none !important;
+    }
+
+    .login-container {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        margin: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9999;
+    }
+
+    .login-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        width: 100%;
+        max-width: 400px;
+        overflow: hidden;
+    }
+
+    .login-header {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 40px 30px 30px;
+        text-align: center;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .login-form {
+        padding: 30px;
+    }
+
+    .form-control:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        border-radius: 10px;
+        font-weight: 600;
+        padding: 12px;
+    }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+</style>
+
+@code {
+    private LoginModel loginModel = new();
+    private string errorMessage = string.Empty;
+    private bool isLoading = false;
+
+    public class LoginModel
+    {
+        [Required(ErrorMessage = "El usuario es obligatorio")]
+        public string NombreUsuario { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "La contraseña es obligatoria")]
+        public string Password { get; set; } = string.Empty;
+    }
+
+    private async Task HandleLogin()
+    {
+        try
+        {
+            isLoading = true;
+            errorMessage = string.Empty;
+
+            var usuario = await AuthService.LoginAsync(loginModel.NombreUsuario, loginModel.Password);
+
+            if (usuario != null)
+            {
+                await JSRuntime.InvokeVoidAsync("alert", $"¡Bienvenido {usuario.NombreCompleto}!");
+                NavigationManager.NavigateTo("/", true);
+            }
+            else
+            {
+                errorMessage = "Usuario o contraseña incorrectos";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Error al iniciar sesión: {ex.Message}";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+}

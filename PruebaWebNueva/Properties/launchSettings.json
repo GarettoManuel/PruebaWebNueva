@@ -1,0 +1,32 @@
+// Lenguaje: JSON
+// Este archivo define cómo arranca la aplicación en desarrollo (con IIS Express o con dotnet run).
+// Se usa solo en entorno de desarrollo, no en producción.
+
+{
+  "iisSettings": {
+    "windowsAuthentication": false, // Desactiva autenticación de Windows
+    "anonymousAuthentication": true, // Permite acceso anónimo
+    "iisExpress": {
+      "applicationUrl": "http://localhost:55500", // URL cuando corre en IIS Express
+      "sslPort": 0 // Puerto SSL (0 = no configurado)
+    }
+  },
+  "profiles": {
+    "PruebaWebNueva": {
+      "commandName": "Project", // Ejecutar con dotnet run
+      "dotnetRunMessages": true, // Muestra mensajes en consola
+      "launchBrowser": true, // Abre navegador automáticamente
+      "applicationUrl": "http://localhost:5001", // URL principal en desarrollo
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development" // Define entorno como Desarrollo
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress", // Ejecutar con IIS Express
+      "launchBrowser": true, // Abre navegador automáticamente
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development" // Define entorno como Desarrollo
+      }
+    }
+  }
+}

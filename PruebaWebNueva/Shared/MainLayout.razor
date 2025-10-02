@@ -1,0 +1,81 @@
+﻿@inherits LayoutComponentBase
+@inject PruebaWebNueva.Application.Services.IAuthService AuthService
+@inject NavigationManager NavigationManager
+
+<PageTitle>PruebaWebNueva</PageTitle>
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4 auth">
+            <!-- Dropdown del usuario -->
+            <div class="ms-auto">
+                <div class="dropdown">
+                    <button class="btn btn-outline-light dropdown-toggle btn-sm" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user me-1"></i>
+                        <span class="d-none d-md-inline">@(usuarioActual?.NombreCompleto ?? "Usuario")</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li>
+                            <h6 class="dropdown-header">
+                                <i class="fas fa-user-circle me-2"></i>
+                                @(usuarioActual?.NombreCompleto ?? "Usuario")
+                            </h6>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item" href="#" @onclick="MostrarPerfil">
+                                <i class="fas fa-user-cog me-2"></i>Mi Perfil
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#" @onclick="MostrarConfiguracion">
+                                <i class="fas fa-cog me-2"></i>Configuración
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item" href="#" @onclick="CerrarSesion">
+                                <i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+
+@code {
+    private Usuario? usuarioActual;
+
+    protected override async Task OnInitializedAsync()
+    {
+        usuarioActual = await AuthService.GetUsuarioActualAsync();
+    }
+
+    private async Task CerrarSesion()
+    {
+        await AuthService.LogoutAsync();
+        NavigationManager.NavigateTo("/login", true);
+    }
+
+    private void MostrarPerfil()
+    {
+        // Implementar más adelante
+        NavigationManager.NavigateTo("#");
+    }
+
+    private void MostrarConfiguracion()
+    {
+        // Implementar más adelante
+        NavigationManager.NavigateTo("#");
+    }
+}

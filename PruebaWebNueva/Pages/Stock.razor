@@ -1,0 +1,360 @@
+﻿@page "/stock"
+@using PruebaWebNueva.Domain.Entities
+@inject PruebaWebNueva.Application.Services.IProductoService ProductoService
+@inject PruebaWebNueva.Application.Services.IEmailService EmailService
+@inject PruebaWebNueva.Application.Services.IAuthService AuthService
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+<ProtectedPageBase>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h3 class="mb-0">
+                        <i class="fas fa-warehouse me-2"></i>Control de Stock
+                    </h3>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-outline-primary" @onclick="CargarStock">
+                            <i class="fas fa-sync-alt me-1"></i>
+                            <span class="d-none d-sm-inline">Actualizar</span>
+                        </button>
+                        <button class="btn btn-success" @onclick="MostrarModalEmail">
+                            <i class="fas fa-envelope me-1"></i>
+                            <span class="d-none d-sm-inline">Enviar por Correo</span>
+                            <span class="d-sm-none">Enviar</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @if (productos == null)
+                    {
+                        <div class="text-center p-4">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Cargando...</span>
+                            </div>
+                            <p class="mt-2">Cargando información de stock...</p>
+                        </div>
+                    }
+                    else if (!productos.Any())
+                    {
+                        <div class="text-center p-4">
+                            <i class="fas fa-inbox fa-3x text-muted mb-3"></i>
+                            <p class="text-muted">No hay productos en el inventario.</p>
+                        </div>
+                    }
+                    else
+                    {
+                        <!-- Resumen de alertas -->
+                        <div class="row mb-4">
+                            <div class="col-md-3 col-6">
+                                <div class="card bg-primary text-white">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-boxes fa-2x mb-2"></i>
+                                        <h5>@productos.Count</h5>
+                                        <small>Total Productos</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="card bg-danger text-white">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-exclamation-triangle fa-2x mb-2"></i>
+                                        <h5>@productos.Count(p => p.CantidadStock <= 0)</h5>
+                                        <small>Sin Stock</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="card bg-warning text-white">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-exclamation fa-2x mb-2"></i>
+                                        <h5>@productos.Count(p => p.CantidadStock > 0 && p.CantidadStock <= p.StockMinimo)</h5>
+                                        <small>Stock Bajo</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="card bg-success text-white">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-check-circle fa-2x mb-2"></i>
+                                        <h5>@productos.Count(p => p.CantidadStock > p.StockMinimo)</h5>
+                                        <small>Stock OK</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tabla de stock -->
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Producto</th>
+                                        <th class="d-none d-md-table-cell">Categoría</th>
+                                        <th class="text-center">Stock Actual</th>
+                                        <th class="text-center">Stock Mínimo</th>
+                                        <th class="text-center">Estado</th>
+                                        <th class="d-none d-lg-table-cell">Última Actualización</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var producto in productos.OrderBy(p => GetEstadoOrden(p)))
+                                    {
+                                        <tr class="@GetRowClass(producto)">
+                                            <td class="align-middle">
+                                                <div>
+                                                    <strong>@producto.Nombre</strong>
+                                                    @if (!string.IsNullOrEmpty(producto.CodigoBarras))
+                                                    {
+                                                        <br>
+                                                        <small class="text-muted">@producto.CodigoBarras</small>
+                                                    }
+                                                </div>
+                                            </td>
+                                            <td class="align-middle d-none d-md-table-cell">
+                                                @(producto.Categoria ?? "-")
+                                            </td>
+                                            <td class="text-center align-middle">
+                                                <span class="badge bg-secondary fs-6">@producto.CantidadStock</span>
+                                            </td>
+                                            <td class="text-center align-middle">
+                                                <span class="badge bg-info fs-6">@producto.StockMinimo</span>
+                                            </td>
+                                            <td class="text-center align-middle">
+                                                @{
+                                                    var estado = GetEstado(producto);
+                                                    var badgeClass = GetBadgeClass(producto);
+                                                }
+                                                <span class="badge @badgeClass">@estado</span>
+                                            </td>
+                                            <td class="align-middle d-none d-lg-table-cell">
+                                                <small>@producto.FechaUltimaActualizacion.ToString("dd/MM/yyyy HH:mm")</small>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para seleccionar email -->
+@if (mostrarModal)
+{
+    <div class="modal fade show d-block" tabindex="-1" style="background-color: rgba(0,0,0,0.5);">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-envelope me-2"></i>Enviar Reporte de Stock
+                    </h5>
+                    <button type="button" class="btn-close" @onclick="CerrarModal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Seleccionar destinatario:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tipoDestinatario" id="emailActual"
+                                   @onchange='() => SetTipoDestinatario("actual")' checked="@(tipoDestinatario == "actual")">
+                            <label class="form-check-label" for="emailActual">
+                                <i class="fas fa-user me-2"></i>Mi email (@(usuarioActual?.Email ?? "No disponible"))
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tipoDestinatario" id="emailPersonalizado"
+                                   @onchange='() => SetTipoDestinatario("personalizado")' checked="@(tipoDestinatario == "personalizado")">
+                            <label class="form-check-label" for="emailPersonalizado">
+                                <i class="fas fa-at me-2"></i>Otro email
+                            </label>
+                        </div>
+                    </div>
+
+                    @if (tipoDestinatario == "personalizado")
+                    {
+                        <div class="mb-3">
+                            <label class="form-label">Email de destino:</label>
+                            <input type="email" class="form-control" @bind="emailPersonalizado"
+                                   placeholder="ejemplo@correo.com" />
+                            @if (!string.IsNullOrEmpty(errorEmail))
+                            {
+                                <div class="text-danger small mt-1">@errorEmail</div>
+                            }
+                        </div>
+                    }
+
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i>
+                        <strong>El reporte incluirá:</strong><br>
+                        • Listado completo de productos<br>
+                        • Estado actual del stock<br>
+                        • Alertas de productos sin stock o con stock bajo<br>
+                        • Archivo Excel descargable
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @onclick="CerrarModal">
+                        <i class="fas fa-times me-1"></i>Cancelar
+                    </button>
+                    <button type="button" class="btn btn-success" @onclick="EnviarReporte" disabled="@enviando">
+                        @if (enviando)
+                        {
+                            <span class="spinner-border spinner-border-sm me-1"></span>
+                            <span>Enviando...</span>
+                        }
+                        else
+                        {
+                            <i class="fas fa-paper-plane me-1"></i>
+                            <span>Enviar Reporte</span>
+                        }
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+}
+</ProtectedPageBase>
+
+@code {
+    private List<Producto>? productos;
+    private Usuario? usuarioActual;
+    private Usuario? usuarioAutenticado;
+    private bool enviando = false;
+    private bool mostrarModal = false;
+    private string tipoDestinatario = "actual";
+    private string emailPersonalizado = "";
+    private string errorEmail = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        usuarioActual = await AuthService.GetUsuarioActualAsync();
+        await CargarStock();
+    }
+    
+
+    private async Task CargarStock()
+    {
+        productos = await ProductoService.GetAllAsync();
+    }
+
+    private void MostrarModalEmail()
+    {
+        mostrarModal = true;
+        tipoDestinatario = "actual";
+        emailPersonalizado = "";
+        errorEmail = "";
+    }
+
+    private void CerrarModal()
+    {
+        mostrarModal = false;
+    }
+
+    private void SetTipoDestinatario(string tipo)
+    {
+        tipoDestinatario = tipo;
+        errorEmail = "";
+    }
+
+    private async Task EnviarReporte()
+    {
+        try
+        {
+            enviando = true;
+            errorEmail = "";
+            if (usuarioActual == null)
+            {
+                await JSRuntime.InvokeVoidAsync("alert", "Error: Usuario no autenticado");
+                return;
+            }
+            string emailDestino = "";
+            string nombreDestinatario = "";
+            if (tipoDestinatario == "actual")
+            {
+                emailDestino = usuarioActual.Email;
+                nombreDestinatario = usuarioActual.NombreCompleto;
+            }
+            else
+            {
+                if (string.IsNullOrWhiteSpace(emailPersonalizado))
+                {
+                    errorEmail = "Por favor ingrese un email válido";
+                    return;
+                }
+                if (!IsValidEmail(emailPersonalizado))
+                {
+                    errorEmail = "El formato del email no es válido";
+                    return;
+                }
+                emailDestino = emailPersonalizado.Trim();
+                nombreDestinatario = "Destinatario";
+            }
+            bool enviado = await EmailService.EnviarReporteStockAsync(emailDestino, nombreDestinatario);
+            if (enviado)
+            {
+                await JSRuntime.InvokeVoidAsync("alert", $"¡Reporte enviado exitosamente a {emailDestino}!");
+                CerrarModal();
+            }
+            else
+            {
+                await JSRuntime.InvokeVoidAsync("alert", "Error al enviar el reporte. Verifique la configuración de correo.");
+            }
+        }
+        catch (Exception ex)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", $"Error: {ex.Message}");
+        }
+        finally
+        {
+            enviando = false;
+        }
+    }
+
+    private bool IsValidEmail(string email)
+    {
+        try
+        {
+            var addr = new System.Net.Mail.MailAddress(email);
+            return addr.Address == email;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    private string GetEstado(Producto producto)
+    {
+        if (producto.CantidadStock <= 0) return "SIN STOCK";
+        if (producto.CantidadStock <= producto.StockMinimo) return "STOCK BAJO";
+        return "OK";
+    }
+
+    private string GetBadgeClass(Producto producto)
+    {
+        if (producto.CantidadStock <= 0) return "bg-danger";
+        if (producto.CantidadStock <= producto.StockMinimo) return "bg-warning";
+        return "bg-success";
+    }
+
+    private string GetRowClass(Producto producto)
+    {
+        if (producto.CantidadStock <= 0) return "table-danger";
+        if (producto.CantidadStock <= producto.StockMinimo) return "table-warning";
+        return "";
+    }
+
+    private int GetEstadoOrden(Producto producto)
+    {
+        if (producto.CantidadStock <= 0) return 1; // Sin stock primero
+        if (producto.CantidadStock <= producto.StockMinimo) return 2; // Stock bajo segundo
+        return 3; // OK al final
+    }
+}

@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Components.Routing
+@using PruebaWebNueva.Pages
+@using PruebaWebNueva.Pages.Productos
+
+<Router AppAssembly="@typeof(App).Assembly">
+    <Found Context="routeData">
+        <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(PruebaWebNueva.Shared.MainLayout)">
+            <NotAuthorized>
+                @{
+                    Navigation.NavigateTo("/login", true);
+                }
+            </NotAuthorized>
+        </AuthorizeRouteView>
+        <FocusOnNavigate RouteData="routeData" Selector="h1" />
+    </Found>
+    <NotFound>
+        <PageTitle>No encontrado</PageTitle>
+        <LayoutView Layout="@typeof(PruebaWebNueva.Shared.MainLayout)">
+            <p role="alert">Lo sentimos, no hay nada en esta dirección.</p>
+        </LayoutView>
+    </NotFound>
+</Router>
+
+@inject NavigationManager Navigation

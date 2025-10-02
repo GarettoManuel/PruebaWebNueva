@@ -1,0 +1,17 @@
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Application\bin\Debug\net6.0\PruebaWebNueva.Application.deps.json
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Application\bin\Debug\net6.0\PruebaWebNueva.Application.dll
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Application\bin\Debug\net6.0\PruebaWebNueva.Application.pdb
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Application\bin\Debug\net6.0\PruebaWebNueva.Domain.dll
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Application\bin\Debug\net6.0\PruebaWebNueva.Infrastructure.dll
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Application\bin\Debug\net6.0\PruebaWebNueva.Domain.pdb
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Application\bin\Debug\net6.0\PruebaWebNueva.Infrastructure.pdb
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Application\obj\Debug\net6.0\PruebaWebNueva.Application.csproj.AssemblyReference.cache
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Application\obj\Debug\net6.0\PruebaWebNueva.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Application\obj\Debug\net6.0\PruebaWebNueva.Application.AssemblyInfoInputs.cache
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Application\obj\Debug\net6.0\PruebaWebNueva.Application.AssemblyInfo.cs
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Application\obj\Debug\net6.0\PruebaWebNueva.Application.csproj.CoreCompileInputs.cache
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Application\obj\Debug\net6.0\PruebaWe.65D1866F.Up2Date
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Application\obj\Debug\net6.0\PruebaWebNueva.Application.dll
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Application\obj\Debug\net6.0\refint\PruebaWebNueva.Application.dll
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Application\obj\Debug\net6.0\PruebaWebNueva.Application.pdb
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Application\obj\Debug\net6.0\ref\PruebaWebNueva.Application.dll
