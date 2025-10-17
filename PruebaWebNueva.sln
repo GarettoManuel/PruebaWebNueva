@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaWebNueva.Application"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaWebNueva.Infrastructure", "PruebaWebNueva.Infrastructure\PruebaWebNueva.Infrastructure.csproj", "{F8847342-3896-40DC-ABD5-1FC0169CA515}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaWebNueva.Client.SharedUI", "PruebaWebNueva.Client.SharedUI\PruebaWebNueva.Client.SharedUI.csproj", "{FF01152B-12E6-44A8-807D-91D217F3083B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaWebNueva.Maui", "PruebaWebNueva.Maui\PruebaWebNueva.Maui.csproj", "{3C44224B-B318-4017-A04A-938C97EF0F4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,16 @@ Global
 		{F8847342-3896-40DC-ABD5-1FC0169CA515}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8847342-3896-40DC-ABD5-1FC0169CA515}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8847342-3896-40DC-ABD5-1FC0169CA515}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF01152B-12E6-44A8-807D-91D217F3083B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF01152B-12E6-44A8-807D-91D217F3083B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF01152B-12E6-44A8-807D-91D217F3083B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF01152B-12E6-44A8-807D-91D217F3083B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C44224B-B318-4017-A04A-938C97EF0F4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C44224B-B318-4017-A04A-938C97EF0F4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C44224B-B318-4017-A04A-938C97EF0F4D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3C44224B-B318-4017-A04A-938C97EF0F4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C44224B-B318-4017-A04A-938C97EF0F4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C44224B-B318-4017-A04A-938C97EF0F4D}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

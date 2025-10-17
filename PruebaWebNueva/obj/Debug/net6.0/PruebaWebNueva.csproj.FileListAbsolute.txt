@@ -69,6 +69,7 @@ C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva\obj\Debug\net6.0\Prueb
 C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva\obj\Debug\net6.0\PruebaWebNueva.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva\obj\Debug\net6.0\PruebaWebNueva.RazorAssemblyInfo.cache
 C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva\obj\Debug\net6.0\PruebaWebNueva.RazorAssemblyInfo.cs
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva\obj\Debug\net6.0\PruebaWebNueva.sourcelink.json
 C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva\obj\Debug\net6.0\staticwebassets\msbuild.PruebaWebNueva.Microsoft.AspNetCore.StaticWebAssets.props

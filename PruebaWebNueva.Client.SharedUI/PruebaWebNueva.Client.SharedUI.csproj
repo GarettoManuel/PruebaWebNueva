@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<SupportedPlatform Include="browser" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Paquetes NuGet necesarios para componentes Razor -->
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.Forms" Version="8.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="8.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Referencias a tus proyectos -->
+		<ProjectReference Include="..\PruebaWebNueva.Application\PruebaWebNueva.Application.csproj" />
+		<ProjectReference Include="..\PruebaWebNueva.Domain\PruebaWebNueva.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

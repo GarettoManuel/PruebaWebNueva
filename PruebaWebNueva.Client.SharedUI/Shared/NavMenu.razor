@@ -1,0 +1,70 @@
+﻿<div class="top-row ps-3 navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="">
+            <i class="fas fa-cogs me-2"></i>
+            <span class="d-none d-lg-inline">SistemaGest</span>
+            <span class="d-lg-none">SG</span>
+        </a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<div class="@NavMenuCssClass nav-scrollable bg-dark" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+
+        <!-- Dashboard -->
+        <div class="nav-item px-3">
+            <NavLink class="nav-link text-white" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-dashboard me-2" aria-hidden="true"></span>
+                <i class="fas fa-tachometer-alt me-2"></i>
+                <span class="nav-text">Dashboard</span>
+            </NavLink>
+        </div>
+
+        <!-- Productos -->
+        <div class="nav-item px-3">
+            <NavLink class="nav-link text-white" href="/productos">
+                <i class="fas fa-boxes me-2"></i>
+                <span class="nav-text">Productos</span>
+            </NavLink>
+        </div>
+
+        <!-- Clientes -->
+        <div class="nav-item px-3">
+            <NavLink class="nav-link text-white" href="/clientes">
+                <i class="fas fa-users me-2"></i>
+                <span class="nav-text">Clientes</span>
+            </NavLink>
+        </div>
+
+        <!-- Ventas -->
+        <div class="nav-item px-3">
+            <NavLink class="nav-link text-white" href="ventas">
+                <i class="fas fa-shopping-cart me-2"></i>
+                <span class="nav-text">Ventas</span>
+            </NavLink>
+        </div>
+
+        <!-- Stock -->
+        <div class="nav-item px-3">
+            <NavLink class="nav-link text-white" href="stock">
+                <i class="fas fa-warehouse me-2"></i>
+                <span class="nav-text">Stock</span>
+            </NavLink>
+        </div>
+
+    </nav>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

@@ -1,0 +1,164 @@
+﻿@page "/productos/editar/{id:int}"
+@using Microsoft.AspNetCore.Components.Forms
+@using PruebaWebNueva.Domain.Entities
+@inject PruebaWebNueva.Application.Services.IProductoService ProductoService
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h3 class="mb-0">
+                        <i class="fas fa-edit me-2"></i>
+                        <span class="d-none d-sm-inline">Editar Producto</span>
+                        <span class="d-sm-none">Editar</span>
+                    </h3>
+                </div>
+                <div class="card-body">
+                    @if (producto == null)
+                    {
+                        <div class="text-center p-4">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Cargando...</span>
+                            </div>
+                            <p class="mt-2">Cargando producto...</p>
+                        </div>
+                    }
+                    else if (productoNoEncontrado)
+                    {
+                        <div class="alert alert-warning" role="alert">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            No se encontró el producto solicitado.
+                        </div>
+                        <div class="d-grid">
+                            <button class="btn btn-secondary" @onclick="Volver">
+                                <i class="fas fa-arrow-left me-2"></i>Volver al listado
+                            </button>
+                        </div>
+                    }
+                    else
+                    {
+                        <EditForm Model="@producto" OnValidSubmit="HandleValidSubmit">
+                            <DataAnnotationsValidator />
+
+                            <!-- Resumen de errores - Solo visible en móvil si hay errores -->
+                            <div class="d-block d-md-none mb-3">
+                                <ValidationSummary />
+                            </div>
+
+                            <!-- Campos del formulario -->
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">
+                                    <i class="fas fa-tag me-1"></i>Nombre *
+                                </label>
+                                <InputText @bind-Value="producto.Nombre"
+                                           class="form-control form-control-lg"
+                                           placeholder="Ingrese el nombre del producto" />
+                                <ValidationMessage For="@(() => producto.Nombre)" class="text-danger small mt-1" />
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">
+                                    <i class="fas fa-dollar-sign me-1"></i>Precio *
+                                </label>
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-text">$</span>
+                                    <InputNumber @bind-Value="producto.Precio"
+                                                 class="form-control"
+                                                 placeholder="0.00"
+                                                 step="0.01" />
+                                </div>
+                                <ValidationMessage For="@(() => producto.Precio)" class="text-danger small mt-1" />
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fw-bold">
+                                    <i class="fas fa-file-alt me-1"></i>Descripción
+                                </label>
+                                <InputTextArea @bind-Value="producto.Descripcion"
+                                               class="form-control"
+                                               rows="3"
+                                               placeholder="Descripción opcional del producto" />
+                                <ValidationMessage For="@(() => producto.Descripcion)" class="text-danger small mt-1" />
+                            </div>
+
+                            <!-- Resumen de errores - Visible en escritorio -->
+                            <div class="d-none d-md-block mb-3">
+                                <ValidationSummary />
+                            </div>
+
+                            <!-- Botones responsive -->
+                            <div class="row g-2">
+                                <!-- En móvil: botones apilados, en desktop: lado a lado -->
+                                <div class="col-12 col-md-6 order-2 order-md-1">
+                                    <button type="button"
+                                            class="btn btn-outline-secondary w-100 btn-lg"
+                                            @onclick="Cancelar">
+                                        <i class="fas fa-times me-2"></i>
+                                        <span class="d-none d-sm-inline">Cancelar</span>
+                                        <span class="d-sm-none">Cancelar</span>
+                                    </button>
+                                </div>
+                                <div class="col-12 col-md-6 order-1 order-md-2">
+                                    <button type="submit"
+                                            class="btn btn-success w-100 btn-lg">
+                                        <i class="fas fa-save me-2"></i>
+                                        <span class="d-none d-sm-inline">Guardar Cambios</span>
+                                        <span class="d-sm-none">Guardar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </EditForm>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public int Id { get; set; }
+
+    private Producto? producto;
+    private bool productoNoEncontrado = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await CargarProducto();
+    }
+
+    private async Task CargarProducto()
+    {
+        producto = await ProductoService.GetByIdAsync(Id);
+        if (producto == null)
+        {
+            productoNoEncontrado = true;
+        }
+    }
+
+    private async Task HandleValidSubmit(EditContext context)
+    {
+        try
+        {
+            await ProductoService.UpdateAsync(producto!);
+            await JSRuntime.InvokeVoidAsync("alert", "¡Producto actualizado exitosamente!");
+            NavigationManager.NavigateTo("/productos");
+        }
+        catch (Exception ex)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", $"Error al actualizar: {ex.Message}");
+        }
+    }
+
+    private void Cancelar()
+    {
+        NavigationManager.NavigateTo("/productos");
+    }
+
+    private void Volver()
+    {
+        NavigationManager.NavigateTo("/productos");
+    }
+}

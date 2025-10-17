@@ -1,0 +1,67 @@
+﻿@using PruebaWebNueva.Domain.Entities
+@inject PruebaWebNueva.Application.Services.IAuthService AuthService
+@inject NavigationManager NavigationManager
+@inherits ComponentBase
+
+@if (IsAuthenticated && !IsLoading)
+{
+    @ChildContent
+}
+else if (!IsAuthenticated && !IsLoading)
+{
+    <div class="text-center p-5">
+        <div class="alert alert-warning">
+            <i class="fas fa-lock me-2"></i>
+            <strong>Acceso denegado</strong><br>
+            Debe iniciar sesión para acceder a esta página.
+        </div>
+        <button class="btn btn-primary" @onclick="RedirectToLogin">
+            <i class="fas fa-sign-in-alt me-2"></i>Iniciar Sesión
+        </button>
+    </div>
+}
+else
+{
+    <div class="text-center p-5">
+        <div class="spinner-border text-primary mb-3" role="status">
+            <span class="visually-hidden">Verificando acceso...</span>
+        </div>
+        <p>Verificando autenticación...</p>
+    </div>
+}
+
+@code {
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    protected Usuario? CurrentUser { get; private set; }
+    protected bool IsAuthenticated => CurrentUser != null;
+    protected bool IsLoading { get; private set; } = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await CheckAuthentication();
+    }
+
+    private async Task CheckAuthentication()
+    {
+        IsLoading = true;
+        StateHasChanged();
+
+        CurrentUser = await AuthService.GetUsuarioActualAsync();
+
+        if (CurrentUser == null)
+        {
+            await Task.Delay(100); // Pequeña pausa para mejor UX
+            NavigationManager.NavigateTo("/login", true);
+            return;
+        }
+
+        IsLoading = false;
+        StateHasChanged();
+    }
+
+    private void RedirectToLogin()
+    {
+        NavigationManager.NavigateTo("/login", true);
+    }
+}

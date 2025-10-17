@@ -1,0 +1,6 @@
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Client.SharedUI\obj\Debug\net8.0\PruebaWebNueva.Client.SharedUI.csproj.AssemblyReference.cache
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Client.SharedUI\obj\Debug\net8.0\PruebaWebNueva.Client.SharedUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Client.SharedUI\obj\Debug\net8.0\PruebaWebNueva.Client.SharedUI.AssemblyInfoInputs.cache
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Client.SharedUI\obj\Debug\net8.0\PruebaWebNueva.Client.SharedUI.AssemblyInfo.cs
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Client.SharedUI\obj\Debug\net8.0\PruebaWebNueva.Client.SharedUI.csproj.CoreCompileInputs.cache
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Client.SharedUI\obj\Debug\net8.0\PruebaWebNueva.Client.SharedUI.sourcelink.json

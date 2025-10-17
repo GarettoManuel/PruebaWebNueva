@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Maui\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\PruebaWebNueva.Maui.styles.css",
+      "PackagePath": "staticwebassets\\PruebaWebNueva.Maui.styles.css"
+    },
+    {
+      "Id": "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Maui\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Maui\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Maui\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Maui\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Maui\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.PruebaWebNueva.Maui.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.build.PruebaWebNueva.Maui.props",
+      "PackagePath": "build\\PruebaWebNueva.Maui.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.buildMultiTargeting.PruebaWebNueva.Maui.props",
+      "PackagePath": "buildMultiTargeting\\PruebaWebNueva.Maui.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.buildTransitive.PruebaWebNueva.Maui.props",
+      "PackagePath": "buildTransitive\\PruebaWebNueva.Maui.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

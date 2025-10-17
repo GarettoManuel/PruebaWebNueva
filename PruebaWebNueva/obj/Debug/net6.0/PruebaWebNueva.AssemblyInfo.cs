@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PruebaWebNueva")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ced3d5105666abc6817d36cd27506f1b432ed007")]
 [assembly: System.Reflection.AssemblyProductAttribute("PruebaWebNueva")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PruebaWebNueva")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

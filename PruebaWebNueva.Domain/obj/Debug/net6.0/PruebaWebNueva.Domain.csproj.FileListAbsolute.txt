@@ -5,6 +5,7 @@ C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Domain\obj\Debug\net6.
 C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Domain\obj\Debug\net6.0\PruebaWebNueva.Domain.AssemblyInfoInputs.cache
 C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Domain\obj\Debug\net6.0\PruebaWebNueva.Domain.AssemblyInfo.cs
 C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Domain\obj\Debug\net6.0\PruebaWebNueva.Domain.csproj.CoreCompileInputs.cache
+C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Domain\obj\Debug\net6.0\PruebaWebNueva.Domain.sourcelink.json
 C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Domain\obj\Debug\net6.0\PruebaWebNueva.Domain.dll
 C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Domain\obj\Debug\net6.0\refint\PruebaWebNueva.Domain.dll
 C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Domain\obj\Debug\net6.0\PruebaWebNueva.Domain.pdb
