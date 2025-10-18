@@ -1,0 +1,83 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows,browser
+build_property.RootNamespace = PruebaWebNueva.Client.SharedUI
+build_property.RootNamespace = PruebaWebNueva.Client.SharedUI
+build_property.ProjectDir = C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Client.SharedUI\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\garet\source\repos\PruebaWebNueva\PruebaWebNueva.Client.SharedUI
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/garet/source/repos/PruebaWebNueva/PruebaWebNueva.Client.SharedUI/Pages/Clientes/Clientes.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpZW50ZXNcQ2xpZW50ZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/garet/source/repos/PruebaWebNueva/PruebaWebNueva.Client.SharedUI/Pages/Clientes/Crear.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpZW50ZXNcQ3JlYXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/garet/source/repos/PruebaWebNueva/PruebaWebNueva.Client.SharedUI/Pages/Clientes/Editar.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpZW50ZXNcRWRpdGFyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/garet/source/repos/PruebaWebNueva/PruebaWebNueva.Client.SharedUI/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/garet/source/repos/PruebaWebNueva/PruebaWebNueva.Client.SharedUI/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/garet/source/repos/PruebaWebNueva/PruebaWebNueva.Client.SharedUI/Pages/Productos/Crear.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdG9zXENyZWFyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/garet/source/repos/PruebaWebNueva/PruebaWebNueva.Client.SharedUI/Pages/Productos/Editar.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdG9zXEVkaXRhci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/garet/source/repos/PruebaWebNueva/PruebaWebNueva.Client.SharedUI/Pages/Productos/Productos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdG9zXFByb2R1Y3Rvcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/garet/source/repos/PruebaWebNueva/PruebaWebNueva.Client.SharedUI/Pages/Stock.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RvY2sucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/garet/source/repos/PruebaWebNueva/PruebaWebNueva.Client.SharedUI/Shared/AuthGuard.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEF1dGhHdWFyZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/garet/source/repos/PruebaWebNueva/PruebaWebNueva.Client.SharedUI/Shared/ProtectedPageBase.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFByb3RlY3RlZFBhZ2VCYXNlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/garet/source/repos/PruebaWebNueva/PruebaWebNueva.Client.SharedUI/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/garet/source/repos/PruebaWebNueva/PruebaWebNueva.Client.SharedUI/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/garet/source/repos/PruebaWebNueva/PruebaWebNueva.Client.SharedUI/Component1.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50MS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-xzud6er08x
+
+[C:/Users/garet/source/repos/PruebaWebNueva/PruebaWebNueva.Client.SharedUI/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-js1ki3fdta
+
+[C:/Users/garet/source/repos/PruebaWebNueva/PruebaWebNueva.Client.SharedUI/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-qf0xzel57r

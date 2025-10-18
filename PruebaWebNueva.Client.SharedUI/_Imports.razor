@@ -1,8 +1,25 @@
-﻿@using Microsoft.AspNetCore.Components.Web
+﻿@using System.Net.Http
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
 @using Microsoft.AspNetCore.Components.Forms
 @using Microsoft.AspNetCore.Components.Routing
-@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using Microsoft.JSInterop
+
+@* Referencias a Application *@
 @using PruebaWebNueva.Application
 @using PruebaWebNueva.Application.Services
+@using PruebaWebNueva.Application.DTOs
+
+@* Referencias a Domain *@
 @using PruebaWebNueva.Domain
-@*@using PruebaWebNueva.Application.DTOs*@
+@using PruebaWebNueva.Domain.Entities
+
+@* Componentes compartidos (si los tenés organizados en carpetas) *@
+@using PruebaWebNueva.Client.SharedUI
+@using PruebaWebNueva.Client.SharedUI.Pages
+
+@* ELIMINA estas líneas si no existen esas carpetas:
+@using PruebaWebNueva.Client.SharedUI.Components
+*@

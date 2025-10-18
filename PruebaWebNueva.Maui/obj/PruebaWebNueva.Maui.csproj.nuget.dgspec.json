@@ -100,7 +100,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -108,8 +108,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {
               "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Application\\PruebaWebNueva.Application.csproj": {
                 "projectPath": "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Application\\PruebaWebNueva.Application.csproj"
@@ -132,20 +132,20 @@
         }
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
             "Microsoft.AspNetCore.Components.Authorization": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[6.0.0, )"
             },
             "Microsoft.AspNetCore.Components.Forms": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[6.0.0, )"
             },
             "Microsoft.AspNetCore.Components.Web": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[6.0.0, )"
             }
           },
           "imports": [
@@ -164,7 +164,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.413/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.413\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -343,9 +343,6 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net8.0-android",
-          "net8.0-ios",
-          "net8.0-maccatalyst",
           "net8.0-windows10.0.19041.0"
         ],
         "sources": {
@@ -354,35 +351,20 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0-android34.0": {
-            "targetAlias": "net8.0-android",
-            "projectReferences": {
-              "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Client.SharedUI\\PruebaWebNueva.Client.SharedUI.csproj": {
-                "projectPath": "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Client.SharedUI\\PruebaWebNueva.Client.SharedUI.csproj"
-              }
-            }
-          },
-          "net8.0-ios18.0": {
-            "targetAlias": "net8.0-ios",
-            "projectReferences": {
-              "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Client.SharedUI\\PruebaWebNueva.Client.SharedUI.csproj": {
-                "projectPath": "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Client.SharedUI\\PruebaWebNueva.Client.SharedUI.csproj"
-              }
-            }
-          },
-          "net8.0-maccatalyst18.0": {
-            "targetAlias": "net8.0-maccatalyst",
-            "projectReferences": {
-              "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Client.SharedUI\\PruebaWebNueva.Client.SharedUI.csproj": {
-                "projectPath": "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Client.SharedUI\\PruebaWebNueva.Client.SharedUI.csproj"
-              }
-            }
-          },
           "net8.0-windows10.0.19041": {
             "targetAlias": "net8.0-windows10.0.19041.0",
             "projectReferences": {
+              "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Application\\PruebaWebNueva.Application.csproj": {
+                "projectPath": "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Application\\PruebaWebNueva.Application.csproj"
+              },
               "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Client.SharedUI\\PruebaWebNueva.Client.SharedUI.csproj": {
                 "projectPath": "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Client.SharedUI\\PruebaWebNueva.Client.SharedUI.csproj"
+              },
+              "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Domain\\PruebaWebNueva.Domain.csproj": {
+                "projectPath": "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Domain\\PruebaWebNueva.Domain.csproj"
+              },
+              "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Infrastructure\\PruebaWebNueva.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Infrastructure\\PruebaWebNueva.Infrastructure.csproj"
               }
             }
           }
@@ -399,148 +381,28 @@
         }
       },
       "frameworks": {
-        "net8.0-android34.0": {
-          "targetAlias": "net8.0-android",
-          "dependencies": {
-            "Microsoft.AspNetCore.Components.WebView.Maui": {
-              "target": "Package",
-              "version": "[8.0.*, )"
-            },
-            "Microsoft.Maui.Controls": {
-              "target": "Package",
-              "version": "[8.0.*, )"
-            },
-            "Microsoft.Maui.Controls.Compatibility": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.100, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.Android": {
-              "privateAssets": "all"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.413/PortableRuntimeIdentifierGraph.json"
-        },
-        "net8.0-ios18.0": {
-          "targetAlias": "net8.0-ios",
-          "dependencies": {
-            "Microsoft.AspNetCore.Components.WebView.Maui": {
-              "target": "Package",
-              "version": "[8.0.*, )"
-            },
-            "Microsoft.Maui.Controls": {
-              "target": "Package",
-              "version": "[8.0.*, )"
-            },
-            "Microsoft.Maui.Controls.Compatibility": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.100, )"
-            },
-            "Microsoft.NET.ILLink.Tasks": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.19, )",
-              "autoReferenced": true
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.iOS": {
-              "privateAssets": "all"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.413/PortableRuntimeIdentifierGraph.json"
-        },
-        "net8.0-maccatalyst18.0": {
-          "targetAlias": "net8.0-maccatalyst",
-          "dependencies": {
-            "Microsoft.AspNetCore.Components.WebView.Maui": {
-              "target": "Package",
-              "version": "[8.0.*, )"
-            },
-            "Microsoft.Maui.Controls": {
-              "target": "Package",
-              "version": "[8.0.*, )"
-            },
-            "Microsoft.Maui.Controls.Compatibility": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.100, )"
-            },
-            "Microsoft.NET.ILLink.Tasks": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.19, )",
-              "autoReferenced": true
-            }
-          },
-          "imports": [
-            "xamarinios10",
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.MacCatalyst": {
-              "privateAssets": "all"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.413/PortableRuntimeIdentifierGraph.json"
-        },
         "net8.0-windows10.0.19041": {
           "targetAlias": "net8.0-windows10.0.19041.0",
           "dependencies": {
             "Microsoft.AspNetCore.Components.WebView.Maui": {
               "target": "Package",
-              "version": "[8.0.*, )"
+              "version": "[8.0.90, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Logging.Debug": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.*, )"
+              "version": "[8.0.90, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
-              "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.100, )"
+              "version": "[8.0.90, )"
             }
           },
           "imports": [
@@ -569,6 +431,11 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.413\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win10-x64": {
+          "#import": []
         }
       }
     }

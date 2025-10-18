@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PruebaWebNueva.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ced3d5105666abc6817d36cd27506f1b432ed007")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5ed5faf5592746f94867180a0c40950c7771a0c0")]
 [assembly: System.Reflection.AssemblyProductAttribute("PruebaWebNueva.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PruebaWebNueva.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

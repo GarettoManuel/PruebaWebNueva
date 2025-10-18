@@ -1,0 +1,17 @@
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using PruebaWebNueva.Client.SharedUI.Shared
+
+<Router AppAssembly="@typeof(Main).Assembly" 
+        AdditionalAssemblies="new[] { typeof(PruebaWebNueva.Client.SharedUI._Imports).Assembly }">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(PruebaWebNueva.Client.SharedUI.Shared.MainLayout)" />
+        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+    </Found>
+    <NotFound>
+        <PageTitle>No encontrado</PageTitle>
+        <LayoutView Layout="@typeof(PruebaWebNueva.Client.SharedUI.Shared.MainLayout)">
+            <p role="alert">Lo sentimos, no hay nada en esta dirección.</p>
+        </LayoutView>
+    </NotFound>
+</Router>

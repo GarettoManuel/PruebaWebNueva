@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FF01152B-12E6-44A8-807D-91D217F3083B}|PruebaWebNueva.Client.SharedUI\\PruebaWebNueva.Client.SharedUI.csproj|c:\\users\\garet\\source\\repos\\pruebawebnueva\\pruebawebnueva.client.sharedui\\pages\\clientes\\clientes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FF01152B-12E6-44A8-807D-91D217F3083B}|PruebaWebNueva.Client.SharedUI\\PruebaWebNueva.Client.SharedUI.csproj|solutionrelative:pruebawebnueva.client.sharedui\\pages\\clientes\\clientes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3C44224B-B318-4017-A04A-938C97EF0F4D}|PruebaWebNueva.Maui\\PruebaWebNueva.Maui.csproj|c:\\users\\garet\\source\\repos\\pruebawebnueva\\pruebawebnueva.maui\\pruebawebnueva.maui.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{3C44224B-B318-4017-A04A-938C97EF0F4D}|PruebaWebNueva.Maui\\PruebaWebNueva.Maui.csproj|solutionrelative:pruebawebnueva.maui\\pruebawebnueva.maui.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Clientes.razor",
-              "DocumentMoniker": "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Client.SharedUI\\Pages\\Clientes\\Clientes.razor",
-              "RelativeDocumentMoniker": "PruebaWebNueva.Client.SharedUI\\Pages\\Clientes\\Clientes.razor",
-              "ToolTip": "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Client.SharedUI\\Pages\\Clientes\\Clientes.razor",
-              "RelativeToolTip": "PruebaWebNueva.Client.SharedUI\\Pages\\Clientes\\Clientes.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-17T22:45:14.307Z",
+              "Title": "PruebaWebNueva.Maui",
+              "DocumentMoniker": "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Maui\\PruebaWebNueva.Maui.csproj",
+              "RelativeDocumentMoniker": "PruebaWebNueva.Maui\\PruebaWebNueva.Maui.csproj",
+              "ToolTip": "C:\\Users\\garet\\source\\repos\\PruebaWebNueva\\PruebaWebNueva.Maui\\PruebaWebNueva.Maui.csproj",
+              "RelativeToolTip": "PruebaWebNueva.Maui\\PruebaWebNueva.Maui.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-18T00:51:48.077Z",
               "EditorCaption": ""
             }
           ]
